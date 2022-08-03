@@ -46,7 +46,8 @@ contract OneERC721 is ERC721Enumerable, Ownable {
     address from,
     address to,
     uint256
-  ) internal pure override {
+  ) internal override {
+    super._beforeTokenTransfer(from, to, tokenId);
     if (address(0) != from && address(0) != to) {
       revert("Non transferrable");
     }
